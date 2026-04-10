@@ -1,0 +1,21 @@
+---
+title: "Jaimni Zhao"
+---
+
+::: columns
+::: {.column width="50%" style="text-align: center;"}
+
+```{r, echo=FALSE, fig.align='center', out.width='100%'}
+knitr::include_graphics("images/profile.jpg")
+```
+
+:::
+
+::: {.column width="50%" style="text-align: left; padding-left: 30px;"}
+
+**Biostatistics & Healthcare Data | RWE & Clinical Research | R, Python, SAS**
+
+MPH Candidate in Biostatistics @ Emory University. Road trip lover with Nemo.
+
+:::
+:::

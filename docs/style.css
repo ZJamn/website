@@ -1,0 +1,11 @@
+/* Default link color */
+a {
+  color: #2C7BE5;
+  text-decoration: none;
+}
+
+/* Hover state */
+a:hover {
+  color: #1A5BB8;
+  text-decoration: underline;
+}

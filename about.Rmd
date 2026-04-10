@@ -1,0 +1,33 @@
+---
+title: "About"
+---
+
+## Education
+
+**Rollins School of Public Health, Emory University** — Atlanta, GA
+*Master of Public Health, Biostatistics* (Aug 2024 -- June 2026)
+
+- Pursuing Data Science Certificate
+
+**College of Biological Science, UC Davis** — Davis, CA
+*Bachelor of Science, Biological Science* (July 2019 -- June 2023)
+
+## Work Experience
+
+**Biostatistician** — Grady Memorial Hospital / Emory University School of Medicine (Oct 2025 -- Present)
+
+- Large-scale claims data analysis (>2.1M patients), survival analysis, systematic review & meta-analysis, RCT efficacy analysis
+
+**Research Assistant** — Emory University Rollins School of Public Health (Sep 2025 -- Present)
+
+- Transcriptomic deconvolution (CIBERSORTx), unsupervised clustering for MDD immune subtypes
+
+**Data Analyst** — Emory CIDMATH (Sep 2024 -- May 2025)
+
+- ETL pipelines, Databricks platform, disease transmission simulation tool evaluation
+
+## Interests
+
+**Nemo** — My dog, born March 1, 2022. Best road trip co-pilot.
+
+**Road Trips** — Irvine to Atlanta, Pacific Coast Highway (Route 1), Route 66, Davis to Kansas. More trips and photos coming soon!
