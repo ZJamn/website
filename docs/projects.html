@@ -16,7 +16,7 @@
 <script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/darkly.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -255,9 +255,16 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="about.html">
-    <span class="fa fa-book-open"></span>
+    <span class="fa fa-graduation-cap"></span>
      
-    About
+    Education
+  </a>
+</li>
+<li>
+  <a href="work.html">
+    <span class="fa fa-briefcase"></span>
+     
+    Work
   </a>
 </li>
 <li>
@@ -268,10 +275,24 @@ $(document).ready(function () {
   </a>
 </li>
 <li>
+  <a href="interests.html">
+    <span class="fa fa-heart"></span>
+     
+    Interests
+  </a>
+</li>
+<li>
   <a href="files/JiaminZhao_CV.pdf">
     <span class="fa fa-paperclip"></span>
      
     CV
+  </a>
+</li>
+<li>
+  <a href="contact.html">
+    <span class="fa fa-envelope"></span>
+     
+    Connect
   </a>
 </li>
       </ul>
@@ -297,41 +318,80 @@ $(document).ready(function () {
 </div>
 
 
-<div class="row">
-<div class="col-sm-6">
-<a href="https://github.com" class="project-link">
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 class="panel-title">
-Lumbar Spinal Stenosis Claims Analysis
+<div class="project-card">
+<h3>
+Lumbar Spinal Stenosis — RWE Claims Analysis
 </h3>
+<p><span class="project-tag">Lead Project</span></p>
+<div class="project-detail">
+<p><strong>Problem:</strong> How do pre-operative healthcare utilization
+patterns affect surgical timing and outcomes in lumbar spinal stenosis
+patients? Do differences exist across insurance types?</p>
 </div>
-<div class="panel-body">
-<p>
-Encounter-level healthcare utilization and payments in operative and
-nonoperative management of lumbar spinal stenosis. Publication under
-review, 2026.
-</p>
+<div class="project-detail">
+<p><strong>Method:</strong> IBM MarketScan claims data. Cox regression +
+Kaplan-Meier survival analysis stratified by insurance type. GLM /
+negative binomial models for cost and encounter analysis.</p>
+</div>
+<div class="project-detail">
+<p><strong>Outcome:</strong> 4th author on manuscript currently under
+review. Presented findings to senior colleagues and collaborators.</p>
+</div>
+<div class="project-detail">
+<p><strong>Impact:</strong> This study provides payers and clinicians
+with evidence on how insurance-driven differences in pre-surgical care
+affect long-term outcomes — directly informing coverage policy and
+clinical decision-making for one of the most common spinal procedures in
+the US. It was also my first end-to-end RWE project: from messy claims
+data to a publishable manuscript, learning to choose models that fit the
+clinical question and communicate results to people who think in
+patients, not p-values.</p>
 </div>
 </div>
-<p></a></p>
-</div>
-<div class="col-sm-6">
-<a href="https://github.com" class="project-link">
-<div class="panel panel-default">
-<div class="panel-heading">
-<h3 class="panel-title">
-Personal Website
+<div class="project-card">
+<h3>
+Osteoporosis Treatment &amp; DXA Screening — Meta-analysis
 </h3>
+<p><span class="project-tag">Evidence Synthesis</span></p>
+<div class="project-detail">
+<p><strong>Problem:</strong> Is the efficacy of osteoporosis drug
+treatment and DXA screening consistent across sex and race
+subgroups?</p>
 </div>
-<div class="panel-body">
-<p>
-This website — built with R Markdown and GitHub Pages.
+<div class="project-detail">
+<p><strong>Method:</strong> Systematic review + 4 stratified forest
+plots (sex x race). REML heterogeneity estimation.</p>
+</div>
+<div class="project-detail">
+<p><strong>Outcome:</strong> Standardized the team’s meta-analysis
+methodology selection (REML over DL for future analyses).</p>
+</div>
+<div class="project-detail">
+<p><strong>Impact:</strong> The findings revealed that treatment effects
+previously assumed to be universal actually differ meaningfully across
+demographic subgroups — challenging existing screening guidelines and
+supporting more targeted, equity-aware clinical recommendations.</p>
+</div>
+</div>
+<div class="vision-box">
+<h3>
+Looking Ahead
+</h3>
+<p class="vision-quote">
+My goal is to grow into an applied biostatistician embedded in the drug
+development and post-market lifecycle. From clinical trial design to
+real-world evidence on efficacy and safety, I want to help answer one
+fundamental question: <em>what does this treatment truly mean for real
+patients?</em>
 </p>
-</div>
-</div>
-<p></a></p>
-</div>
+<p class="vision-quote">
+I’m building toward that — one dataset, one analysis, one research
+question at a time.
+</p>
+<p class="vision-tagline">
+“Using the language of statistics to guide a treatment from development
+to the patients who need it.”
+</p>
 </div>
 
 

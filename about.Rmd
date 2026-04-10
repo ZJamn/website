@@ -1,33 +1,133 @@
 ---
-title: "About"
+title: "Education"
 ---
 
-## Education
+<div class="timeline">
 
-**Rollins School of Public Health, Emory University** — Atlanta, GA
-*Master of Public Health, Biostatistics* (Aug 2024 -- June 2026)
+<div class="timeline-item">
+<h3>Rollins School of Public Health, Emory University</h3>
+<div class="timeline-date">Aug 2024 — June 2026</div>
+<div class="timeline-location">Atlanta, GA</div>
+<p>Master of Public Health, Biostatistics<br>
+Pursuing Data Science Certificate</p>
+</div>
 
-- Pursuing Data Science Certificate
+<div class="timeline-item">
+<h3>College of Biological Science, UC Davis</h3>
+<div class="timeline-date">July 2019 — June 2023</div>
+<div class="timeline-location">Davis, CA</div>
+<p>Bachelor of Science, Biological Science</p>
+</div>
 
-**College of Biological Science, UC Davis** — Davis, CA
-*Bachelor of Science, Biological Science* (July 2019 -- June 2023)
+</div>
 
-## Work Experience
+## My MPH in Numbers
 
-**Biostatistician** — Grady Memorial Hospital / Emory University School of Medicine (Oct 2025 -- Present)
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height=4}
+library(plotly)
 
-- Large-scale claims data analysis (>2.1M patients), survival analysis, systematic review & meta-analysis, RCT efficacy analysis
+# Grade distribution donut
+grade_data <- data.frame(
+  grade = c("A", "B", "S (Pass)", "In Progress\n(Missing Data)"),
+  count = c(18, 1, 5, 6),
+  color = c("#1ABC9C", "#3498DB", "#95A5A6", "#BDC3C7")
+)
 
-**Research Assistant** — Emory University Rollins School of Public Health (Sep 2025 -- Present)
+p1 <- plot_ly(grade_data,
+  labels = ~grade, values = ~count,
+  type = "pie", hole = 0.5,
+  marker = list(colors = grade_data$color,
+                line = list(color = "#fff", width = 1)),
+  textinfo = "label+value",
+  textfont = list(color = "#333", size = 13),
+  hoverinfo = "label+value+percent"
+) %>%
+  layout(
+    title = list(text = "30 Courses | CUM GPA: 3.911",
+                 font = list(color = "#2C3E50", size = 16)),
+    showlegend = FALSE,
+    plot_bgcolor = "rgba(0,0,0,0)",
+    paper_bgcolor = "rgba(0,0,0,0)",
+    margin = list(t = 50, b = 10)
+  ) %>%
+  config(displayModeBar = FALSE)
 
-- Transcriptomic deconvolution (CIBERSORTx), unsupervised clustering for MDD immune subtypes
+p1
+```
 
-**Data Analyst** — Emory CIDMATH (Sep 2024 -- May 2025)
+```{r, echo=FALSE, message=FALSE, warning=FALSE, fig.height=4.5}
+library(plotly)
 
-- ETL pipelines, Databricks platform, disease transmission simulation tool evaluation
+# Courses by semester and department
+courses <- data.frame(
+  course = c("BIOS 506", "BIOS 510", "BIOS 531", "BIOS 545", "BIOS 590R",
+             "EPI 530", "PUBH 500",
+             "BIOS 507", "BIOS 511", "BIOS 590R", "BSHES 500", "HPM 500",
+             "PUBH 501", "DATA 530",
+             "BIOS 521", "BIOS 525", "BIOS 580", "BIOS 585", "BIOS 590R",
+             "DATA 550", "EH 500", "GH 500",
+             "BIOS 520", "BIOS 581", "BIOS 590R", "BIOS 595",
+             "DATA 534", "DATA 555"),
+  semester = c(rep("Fall 2024", 7), rep("Spring 2025", 7),
+               rep("Fall 2025", 8), rep("Spring 2026", 6)),
+  dept = c("BIOS","BIOS","BIOS","BIOS","BIOS","EPI","PUBH",
+           "BIOS","BIOS","BIOS","BSHES","HPM","PUBH","DATA",
+           "BIOS","BIOS","BIOS","BIOS","BIOS","DATA","EH","GH",
+           "BIOS","BIOS","BIOS","BIOS","DATA","DATA"),
+  grade = c("A","A","A","A","S","B","S",
+            "A","A","S","A","A","S","A",
+            "A","A","A","A","S","A","A","A",
+            "IP","IP","IP","IP","IP","IP"),
+  stringsAsFactors = FALSE
+)
 
-## Interests
+cats <- c("Biostatistics", "Data Science", "Epidemiology", "Public Health",
+          "Behavioral Sciences", "Health Policy", "Environmental Health", "Global Health")
+sems <- c("Fall 2024", "Spring 2025", "Fall 2025", "Spring 2026")
 
-**Nemo** — My dog, born March 1, 2022. Best road trip co-pilot.
+courses$category <- ifelse(courses$dept == "BIOS", "Biostatistics",
+                    ifelse(courses$dept == "DATA", "Data Science",
+                    ifelse(courses$dept == "EPI", "Epidemiology",
+                    ifelse(courses$dept == "PUBH", "Public Health",
+                    ifelse(courses$dept == "BSHES", "Behavioral Sciences",
+                    ifelse(courses$dept == "HPM", "Health Policy",
+                    ifelse(courses$dept == "EH", "Environmental Health",
+                    ifelse(courses$dept == "GH", "Global Health", courses$dept))))))))
 
-**Road Trips** — Irvine to Atlanta, Pacific Coast Highway (Route 1), Route 66, Davis to Kansas. More trips and photos coming soon!
+library(dplyr)
+agg <- courses %>%
+  group_by(semester, category) %>%
+  summarise(n = n(), .groups = "drop")
+
+agg$semester <- factor(agg$semester, levels = sems)
+
+dept_colors <- c("Biostatistics" = "#1ABC9C", "Data Science" = "#3498DB",
+                 "Epidemiology" = "#E74C3C", "Public Health" = "#9B59B6",
+                 "Behavioral Sciences" = "#F39C12", "Health Policy" = "#E67E22",
+                 "Environmental Health" = "#2ECC71", "Global Health" = "#1F77B4")
+
+p2 <- plot_ly()
+for (cat in names(dept_colors)) {
+  d <- agg %>% filter(category == cat)
+  if (nrow(d) > 0) {
+    p2 <- p2 %>% add_bars(data = d, x = ~semester, y = ~n, name = cat,
+                           marker = list(color = dept_colors[[cat]]))
+  }
+}
+p2 <- p2 %>%
+  layout(
+    barmode = "stack",
+    title = list(text = "Courses by Semester & Department",
+                 font = list(color = "#2C3E50", size = 16)),
+    xaxis = list(title = "", tickfont = list(color = "#333")),
+    yaxis = list(title = "Courses", tickfont = list(color = "#333"),
+                 titlefont = list(color = "#333"), gridcolor = "#eee"),
+    legend = list(font = list(color = "#333")),
+    plot_bgcolor = "rgba(0,0,0,0)",
+    paper_bgcolor = "rgba(0,0,0,0)",
+    margin = list(t = 50, b = 10)
+  ) %>%
+  config(displayModeBar = FALSE)
+
+p2
+```

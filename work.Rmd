@@ -1,0 +1,39 @@
+---
+title: "Experience"
+---
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>Biostatistician</h3>
+<div class="timeline-date">Oct 2025 — Present</div>
+<div class="timeline-location">Grady Memorial Hospital / Emory University School of Medicine</div>
+<ul>
+<li>Large-scale claims data analysis (>2.1M patients)</li>
+<li>Survival analysis (Cox regression, Kaplan-Meier)</li>
+<li>Systematic review & meta-analysis</li>
+<li>RCT efficacy analysis</li>
+</ul>
+</div>
+
+<div class="timeline-item">
+<h3>Research Assistant</h3>
+<div class="timeline-date">Sep 2025 — Present</div>
+<div class="timeline-location">Emory University Rollins School of Public Health</div>
+<ul>
+<li>Transcriptomic deconvolution (CIBERSORTx)</li>
+<li>Unsupervised clustering for MDD immune subtypes</li>
+</ul>
+</div>
+
+<div class="timeline-item">
+<h3>Data Analyst</h3>
+<div class="timeline-date">Sep 2024 — May 2025</div>
+<div class="timeline-location">Emory CIDMATH</div>
+<ul>
+<li>ETL pipelines & Databricks platform</li>
+<li>Disease transmission simulation tool evaluation</li>
+</ul>
+</div>
+
+</div>

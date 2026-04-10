@@ -5,22 +5,31 @@ navbar:
   - text: Home
     href: index.html
     icon: fa-home
-  - text: About
+  - text: Education
     href: about.html
-    icon: fa-book-open
+    icon: fa-graduation-cap
+  - text: Work
+    href: work.html
+    icon: fa-briefcase
   - text: Projects
     href: projects.html
     icon: fa-computer
+  - text: Interests
+    href: interests.html
+    icon: fa-heart
   - text: CV
     href: files/JiaminZhao_CV.pdf
     icon: fa-paperclip
+  - text: Connect
+    href: contact.html
+    icon: fa-envelope
   right:
   - text: LinkedIn
     href: https://www.linkedin.com/in/jiamin-z-7ba894330
     icon: fa-linkedin
 output:
   html_document:
-    theme: darkly
+    theme: flatly
     css: style.css
     includes:
       in_header: header.html

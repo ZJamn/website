@@ -1,21 +1,108 @@
 ---
-title: "Jaimni Zhao"
+title: ""
 ---
 
-::: columns
-::: {.column width="50%" style="text-align: center;"}
+<div class="row">
+<div class="col-sm-7">
+<div class="home-intro">
+<div class="typing-title">Hi, I'm Jamie</div>
+<div class="typing-subtitle">Biostatistics & Healthcare Data | RWE & Clinical Research | R, Python, SAS</div>
+<p style="opacity:0; animation: fadeIn 1s ease-in 2.5s forwards; margin-top: 15px;">
+MPH Candidate in Biostatistics @ Emory University.
+</p>
+<p style="opacity:0; animation: fadeIn 1s ease-in 3s forwards; margin-top: 8px; color: #555; line-height: 1.6; font-size: 0.95em;">
+A biostatistics researcher using real-world data and survival analysis to answer <em>what treatment works for whom</em>. Currently working across the full RWE pipeline in clinical research, and building toward drug development and post-market evaluation — to become an applied biostatistician who supports the journey from study design to real-world impact.
+</p>
+</div>
+</div>
+<div class="col-sm-5" style="text-align: center; padding-top: 20px;">
+<img src="images/profile.png" class="profile-photo" />
+</div>
+</div>
 
-```{r, echo=FALSE, fig.align='center', out.width='100%'}
-knitr::include_graphics("images/profile.jpg")
+<div class="forest-nav">
+<h3>Explore My World</h3>
+</div>
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(plotly)
+
+sections <- data.frame(
+  label = c("Education", "Work", "Projects", "CV", "Interests"),
+  estimate = c(0.85, 0.70, 0.60, 0.45, 1.15),
+  lower = c(0.40, 0.25, 0.15, 0.05, 0.65),
+  upper = c(1.30, 1.15, 1.05, 0.85, 1.65),
+  desc = c("Courses & academics",
+           "Professional experience",
+           "What I've built",
+           "Download my resume",
+           "The human behind the CV"),
+  url = c("about.html", "work.html", "projects.html",
+          "files/JiaminZhao_CV.pdf", "interests.html"),
+  stringsAsFactors = FALSE
+)
+
+sections$y <- rev(seq_len(nrow(sections)))
+
+p <- plot_ly() %>%
+  # CI lines
+  add_segments(
+    data = sections,
+    x = ~lower, xend = ~upper, y = ~y, yend = ~y,
+    line = list(color = "#2C3E50", width = 3),
+    showlegend = FALSE,
+    hoverinfo = "none"
+  ) %>%
+  # Point estimates
+  add_markers(
+    data = sections,
+    x = ~estimate, y = ~y,
+    marker = list(color = "#2C3E50", size = 14, symbol = "diamond"),
+    text = ~paste0("<b>", label, "</b><br>", desc, "<br><i>Click to explore</i>"),
+    hoverinfo = "text",
+    customdata = ~url,
+    showlegend = FALSE
+  ) %>%
+  # Null line
+  add_segments(
+    x = 0, xend = 0, y = 0.5, yend = nrow(sections) + 0.5,
+    line = list(color = "#666", width = 1, dash = "dash"),
+    showlegend = FALSE,
+    hoverinfo = "none"
+  ) %>%
+  layout(
+    xaxis = list(
+      title = "",
+      zeroline = FALSE,
+      showgrid = FALSE,
+      showticklabels = FALSE,
+      range = c(-0.5, 2),
+      fixedrange = TRUE
+    ),
+    yaxis = list(
+      tickvals = sections$y,
+      ticktext = sections$label,
+      tickfont = list(size = 14, color = "#333"),
+      showgrid = FALSE,
+      zeroline = FALSE,
+      fixedrange = TRUE
+    ),
+    plot_bgcolor = "rgba(0,0,0,0)",
+    paper_bgcolor = "rgba(0,0,0,0)",
+    margin = list(l = 120, r = 40, t = 10, b = 30),
+    height = 280,
+    dragmode = FALSE
+  ) %>%
+  config(displayModeBar = FALSE) %>%
+  htmlwidgets::onRender("
+    function(el, x) {
+      el.on('plotly_click', function(data) {
+        var url = data.points[0].customdata;
+        if (url) { window.location.href = url; }
+      });
+      el.style.cursor = 'pointer';
+    }
+  ")
+
+p
 ```
-
-:::
-
-::: {.column width="50%" style="text-align: left; padding-left: 30px;"}
-
-**Biostatistics & Healthcare Data | RWE & Clinical Research | R, Python, SAS**
-
-MPH Candidate in Biostatistics @ Emory University. Road trip lover with Nemo.
-
-:::
-:::
