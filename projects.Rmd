@@ -21,6 +21,10 @@ title: "Projects"
 <div class="project-detail">
 <strong>Impact:</strong> This study provides payers and clinicians with evidence on how insurance-driven differences in pre-surgical care affect long-term outcomes — directly informing coverage policy and clinical decision-making for one of the most common spinal procedures in the US. It was also my first end-to-end RWE project: from messy claims data to a publishable manuscript, learning to choose models that fit the clinical question and communicate results to people who think in patients, not p-values.
 </div>
+
+<div class="project-detail">
+<em>Code is proprietary and cannot be shared publicly.</em> See my other work on <a href="https://github.com/ZJamn" target="_blank">GitHub</a>.
+</div>
 </div>
 
 <div class="project-card">
@@ -41,6 +45,10 @@ title: "Projects"
 
 <div class="project-detail">
 <strong>Impact:</strong> The findings revealed that treatment effects previously assumed to be universal actually differ meaningfully across demographic subgroups — challenging existing screening guidelines and supporting more targeted, equity-aware clinical recommendations.
+</div>
+
+<div class="project-detail">
+<em>Code is proprietary and cannot be shared publicly.</em> See my other work on <a href="https://github.com/ZJamn" target="_blank">GitHub</a>.
 </div>
 </div>
 
